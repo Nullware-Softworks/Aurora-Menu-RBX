@@ -18,6 +18,13 @@ while true do
     end
 end)()
 
+local function generateranstring(charamount)
+    local randlowercase = ""
+    for i = charamount,1,-1 do
+        randlowercase = randlowercase .. string.char(math.random(97, 97 + 25))
+    end
+    return randlowercase
+end
 
 local exclusive = Forums:NewSection("Exclusive Mods")
 exclusive:NewButton("Get mod stick (Stand still!)", function() 
@@ -57,8 +64,10 @@ local Safety = Forums:NewSection("Recording Safety")
 Safety:NewToggle("Hide your nameplate", function(state)
     game.Players.LocalPlayer.Character.Head.OverheadGui.Enabled = not state
 end)
-Safety:NewButton("Fake username", function(state)
-    game.Players.LocalPlayer.Character.Head.OverheadGui.Enabled = not state
+
+Safety:NewButton("Fake username", function()
+     local name = generateranstring(20)
+     game.Players.LocalPlayer.Character.Head.OverheadGui.Username.Text = "[FakeName]\n" .. tostring(name)
 end)
 Safety:NewButton("Client-sided color change", function()
     local SpoofedColor = Color3.new(math.random(1,255),math.random(1,255),math.random(1,255))
