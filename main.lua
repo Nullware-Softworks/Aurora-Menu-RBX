@@ -8,11 +8,10 @@ coroutine.wrap(function()
 while true do
            
         if _G.AuroraSettings.RGB then
-            local SpoofedColor = Color3.new(math.random(1,255),math.random(1,255),math.random(1,255))
-            game.Players.LocalPlayer.Character.Head.Head1.Color = SpoofedColor
-            game.Players.LocalPlayer.Character.Torso.Torso.Color = SpoofedColor
-            game.Players.LocalPlayer.Character["Right Arm"].Arm1.Color = SpoofedColor
-            game.Players.LocalPlayer.Character["Left Arm"].Arm2.Color = SpoofedColor
+            for i,v in workspace["Computer 2"].Colors:GetChildren() do
+                fireclickdetector(v.ClickDetector)
+                wait(0.1)
+            end
         end
         wait(0.1)  
     end
