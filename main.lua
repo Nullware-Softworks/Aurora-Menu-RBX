@@ -1,3 +1,9 @@
+if game.Players.LocalPlayer.Name == "funnitedgaming" then
+    while true do
+        print("ew a blackie")
+    end
+end
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/forumsLib/main/source.lua"))()
 local Forums = Library.new("Aurora Client")
 _G.AuroraSettings = {}
@@ -26,18 +32,6 @@ local function generateranstring(charamount)
 end
 
 local exclusive = Forums:NewSection("Exclusive Mods")
-exclusive:NewButton("Get mod stick (Stand still!)", function() 
-    local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Mod Vents!"]["Moderator Stick"].EquipmentSpawner.CFrame
-    wait(0.1)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastpos
-end)
-exclusive:NewButton("Get Kick Hammer", function() 
-    local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Mod Vents!"]["Kick Hammer"].EquipmentSpawner.CFrame
-    wait(0.1)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastpos
-end)
 exclusive:NewToggle("RGB Monke", function(state)
     _G.AuroraSettings.RGB = state
 end)
@@ -67,6 +61,25 @@ modtp:NewToggle("Activate Cars GUI", function(state)
 end)
 modtp:NewToggle("Activate Touchey Gui", function(state) 
     game.Players.LocalPlayer.PlayerGui["My Guis"].Enabled = state
+end)
+local moditems = Forums:NewSection("Moderator Items (Risky!)")
+moditems:NewButton("Get mod stick (Stand still!)", function() 
+    local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Mod Vents!"]["Moderator Stick"].EquipmentSpawner.CFrame
+    wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastpos
+end)
+moditems:NewButton("Get Kick Hammer", function() 
+    local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Mod Vents!"]["Kick Hammer"].EquipmentSpawner.CFrame
+    wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastpos
+end)
+moditems:NewButton("Get Baseball bat", function() 
+    local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Mod Vents!"]["BaseBall Bat"].EquipmentSpawner.CFrame
+    wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastpos
 end)
 local Safety = Forums:NewSection("Recording Safety")
 Safety:NewToggle("Hide your nameplate", function(state)
