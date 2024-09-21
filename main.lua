@@ -1,13 +1,13 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/forumsLib/main/source.lua"))()
 local Forums = Library.new("Aurora Client")
-local AuroraSettings = {}
-AuroraSettings.RGB = false
+_G.AuroraSettings = {}
+_G.AuroraSettings.RGB = false
 
 --RGB Watcher
 coroutine.wrap(function()
 while true do
            
-        if AuroraSettings.RGB then
+        if _G.AuroraSettings.RGB then
             local SpoofedColor = Color3.new(math.random(1,255),math.random(1,255),math.random(1,255))
             game.Players.LocalPlayer.Character.Head.Head1.Color = SpoofedColor
             game.Players.LocalPlayer.Character.Torso.Torso.Color = SpoofedColor
@@ -33,8 +33,14 @@ exclusive:NewButton("Get mod stick (Stand still!)", function()
     wait(0.1)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastpos
 end)
+exclusive:NewButton("Get Kick Hammer", function() 
+    local lastpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace["Mod Vents!"]["Kick Hammer"].EquipmentSpawner.CFrame
+    wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = lastpos
+end)
 exclusive:NewToggle("RGB Monke", function(state)
-    AuroraSettings.RGB = state
+    _G.AuroraSettings.RGB = state
 end)
 exclusive:NewButton("Autofarm all coins", function() 
     for i,v in workspace.CoinSpawns:GetChildren() do
@@ -59,6 +65,9 @@ modtp:NewButton("TP to Arena room", function()
 end)
 modtp:NewToggle("Activate Cars GUI", function(state) 
     game.Players.LocalPlayer.PlayerGui.CarGui.Enabled = state
+end)
+modtp:NewToggle("Activate Touchey Gui", function(state) 
+    game.Players.LocalPlayer.PlayerGui["My Guis"].Enabled = state
 end)
 local Safety = Forums:NewSection("Recording Safety")
 Safety:NewToggle("Hide your nameplate", function(state)
